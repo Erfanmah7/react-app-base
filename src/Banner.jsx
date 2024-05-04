@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Banner() {
   const [isShow, setShow] = useState(false);
@@ -20,6 +20,7 @@ function Banner() {
           <p>Login</p>
         </div>
       )}
+      <br />
       <button onClick={showHandeler}>Show</button>
       <button onClick={hideHandeler}>Hide</button>
       <button onClick={increasehandeler}>Increase-3</button>
