@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./button.module.css";
 
 function Form() {
   const [form, setForm] = useState({
@@ -79,7 +80,9 @@ function Form() {
           onChange={changeHandeler}
           checked={form.check}
         />
-        <button onClick={submitHandeler}>Submit</button>
+        <button className={styles.buttonform} onClick={submitHandeler}>
+          Submit
+        </button>
       </div>
     </>
   );
