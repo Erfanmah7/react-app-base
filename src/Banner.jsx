@@ -23,7 +23,7 @@ function Banner() {
       <button onClick={showHandeler}>Show</button>
       <button onClick={hideHandeler}>Hide</button>
       <button onClick={increasehandeler}>Increase-3</button>
-      {count}
+      <h1>{count}</h1>
     </>
   );
 }
