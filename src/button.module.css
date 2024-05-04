@@ -1,0 +1,15 @@
+.buttonform {
+  color: azure;
+  background-color: blueviolet;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.buttonform:hover {
+  color: blueviolet;
+  background-color: azure;
+  cursor: pointer;
+  border: 1px solid blueviolet;
+}
