@@ -2,6 +2,8 @@ import { useState } from "react";
 import styles from "./button.module.css";
 
 function Form() {
+  const [color, setColor] = useState(false);
+
   const [form, setForm] = useState({
     text: "",
     password: "",
@@ -11,6 +13,7 @@ function Form() {
   });
 
   const submitHandeler = () => {
+    setColor((color) => !color);
     console.log(form);
   };
 
@@ -80,7 +83,10 @@ function Form() {
           onChange={changeHandeler}
           checked={form.check}
         />
-        <button className={styles.buttonform} onClick={submitHandeler}>
+        <button
+          className={color ? styles.buttonform : styles.buttonmyform}
+          onClick={submitHandeler}
+        >
           Submit
         </button>
       </div>
