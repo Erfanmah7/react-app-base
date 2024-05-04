@@ -1,12 +1,9 @@
-function Coursecard({id,title}) {
+function Coursecard({ id, title }) {
   return (
-  
-  <>
-    
-        <li>{title}</li>
+    <>
+      <li>{title}</li>
     </>
-
-  )
+  );
 }
 
-export default Coursecard
+export default Coursecard;
