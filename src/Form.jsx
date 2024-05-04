@@ -1,34 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Form() {
-  const [text, setText] = useState("");
-  const [password, setPassword] = useState("");
-  const [select, setSelect] = useState("user");
-  const [gender, setGender] = useState("male");
-  const [check, setCheck] = useState(false);
+  const [form, setForm] = useState({
+    text: "",
+    password: "",
+    select: "user",
+    gender: "male",
+    check: false,
+  });
 
-  const submitHandeler = (e) => {
-    console.log({ text, password, select, gender, check });
+  const submitHandeler = () => {
+    console.log(form);
   };
 
-  const textHandeler = (e) => {
-    setText(e.target.value);
-  };
+  const changeHandeler = (e) => {
+    const myName = e.target.name;
+    const myValue = e.target.value;
 
-  const passwordHandeler = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const selectHandeler = (e) => {
-    setSelect(e.target.value);
-  };
-
-  const radioHaneler = (e) => {
-    setGender(e.target.value);
-  };
-
-  const checkHandeler = () => {
-    setCheck((check) => !check);
+    if (myName === form.check) {
+      setForm((form) => !form.check);
+    } else {
+      setForm((form) => ({ ...form, [myName]: myValue }));
+    }
   };
 
   return (
@@ -36,17 +29,19 @@ function Form() {
       <div>
         <input
           type="text"
+          name="text"
           placeholder="Please enter your text"
-          value={text}
-          onChange={textHandeler}
+          value={form.text}
+          onChange={changeHandeler}
         />
         <input
           type="password"
+          name="password"
           placeholder="Please enter your password"
-          value={password}
-          onChange={passwordHandeler}
+          value={form.password}
+          onChange={changeHandeler}
         />
-        <select onChange={selectHandeler} value={select}>
+        <select name="role" onChange={changeHandeler} value={form.select}>
           <option value="admin">Admin</option>
           <option value="user">User</option>
           <option value="writer">Writer</option>
@@ -57,8 +52,8 @@ function Form() {
           type="radio"
           name="gender"
           value="male"
-          checked={gender === "male"}
-          onChange={radioHaneler}
+          checked={form.gender === "male"}
+          onChange={changeHandeler}
         />
         <label htmlFor="female">Female</label>
         <input
@@ -66,8 +61,8 @@ function Form() {
           type="radio"
           name="gender"
           value="female"
-          onChange={radioHaneler}
-          checked={gender === "female"}
+          onChange={changeHandeler}
+          checked={form.gender === "female"}
         />
         <label htmlFor="other">Other</label>
         <input
@@ -75,10 +70,15 @@ function Form() {
           type="radio"
           name="gender"
           value="other"
-          checked={gender === "other"}
-          onChange={radioHaneler}
+          checked={form.gender === "other"}
+          onChange={changeHandeler}
         />
-        <input type="checkbox" onChange={checkHandeler} checked={check} />
+        <input
+          type="checkbox"
+          name="check"
+          onChange={changeHandeler}
+          checked={form.check}
+        />
         <button onClick={submitHandeler}>Submit</button>
       </div>
     </>
